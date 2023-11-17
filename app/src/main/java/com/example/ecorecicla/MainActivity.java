@@ -14,23 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnLogin = findViewById(R.id.login_button);
-        Button btnRegisterUser = findViewById(R.id.register_button);
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToMainMenuActivity = new Intent(MainActivity.this, MainMenuActivity.class);
-                startActivity(goToMainMenuActivity);
-            }
-        });
-
-        btnRegisterUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent goToCreateAccountActivity = new Intent(MainActivity.this, CreateAccountActivity.class);
-                startActivity(goToCreateAccountActivity);
-            }
-        });
+        Intent goToLoginActivity = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(goToLoginActivity);
     }
 }
