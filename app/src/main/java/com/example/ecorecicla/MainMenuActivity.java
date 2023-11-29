@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -14,10 +14,10 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        //Button btnprofile = findViewById(R.id.profile_button);
-        Button btnCategory = findViewById(R.id.category_button);
-        Button btnstatistics = findViewById(R.id.statistic_button);
-        Button btnAdvices = findViewById(R.id.advices_button);
+        //ImageButton btnprofile = findViewById(R.id.btnProfileMainMenu);
+        ImageButton btnCategory = findViewById(R.id.btnCategoryMainMenu);
+        ImageButton btnstatistics = findViewById(R.id.btnStatisticMainMenu);
+        ImageButton btnAdvices = findViewById(R.id.btnAdvicesMainMenu);
 
         //TODO: Add ProfileActivity
         //btnprofile.setOnClickListener(new View.OnClickListener() {
