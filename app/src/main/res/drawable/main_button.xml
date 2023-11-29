@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Le daremos un radio de 15dp para hacer las esquinas más redondeadas -->
+    <corners
+        android:radius="2dp" />
+
+    <solid android:color="@android:color/white" />
+
+    <!-- Configuración del borde negro -->
+    <stroke
+        android:width="5dp"
+        android:color="@android:color/black" />
+</shape>

@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccountActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
-        android:id="@+id/viewLogoRegister"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
+        android:id="@+id/viewLogoLogin"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ecoreciclalogo" />
 
     <ImageButton
-        android:id="@+id/btnInfoRegister"
+        android:id="@+id/btnInfoLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -27,21 +27,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bxs_info_circle" />
 
-    <ImageButton
-        android:id="@+id/btnBackRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bx_arrow_back" />
-
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="490dp"
-        android:layout_marginTop="160dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="230dp"
         android:orientation="vertical"
         android:background="#D9D9D9"
         android:gravity="center_horizontal"
@@ -50,92 +39,78 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textWelcomeRegister"
+            android:id="@+id/txtWelcomeLogin"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Crea tu cuenta en EcoRecicla"
-            android:textSize="17sp"
+            android:layout_marginTop="15dp"
+            android:text="Bienvenido a EcoRecicla"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTextNameRegister"
+            android:id="@+id/txtEmailLogin"
             android:layout_width="230dp"
             android:layout_height="48dp"
-            android:layout_marginTop="5dp"
             android:ems="10"
-            android:hint="Nombres"
+            android:hint="Correo / Nickname"
+            android:layout_marginTop="15dp"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/editTextLastNameRegister"
-            android:layout_width="230dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Apellidos"
-            android:layout_marginTop="5dp"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editTextEmailRegister"
-            android:layout_width="230dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Email"
-            android:layout_marginTop="5dp"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:id="@+id/editTextPhoneRegister"
-            android:layout_width="230dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Número celular"
-            android:layout_marginTop="5dp"
-            android:inputType="phone" />
-
-        <EditText
-            android:id="@+id/editTextCityRegister"
-            android:layout_width="230dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Ciudad"
-            android:layout_marginTop="5dp"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editTextPasswordRegister"
+            android:id="@+id/txtPasswordLogin"
             android:layout_width="230dp"
             android:layout_height="48dp"
             android:ems="10"
             android:hint="Contraseña"
-            android:layout_marginTop="5dp"
-            android:inputType="textPassword" />
-
-        <EditText
-            android:id="@+id/editTextRepeatPasswordRegister"
-            android:layout_width="230dp"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Repite tu contraseña"
-            android:layout_marginTop="5dp"
-            android:inputType="textPassword" />
+            android:layout_marginTop="15dp"
+            android:inputType="number" />
 
         <Button
-            android:id="@+id/btnRegisterRegister"
+            android:id="@+id/btnLoginLogin"
+            android:layout_width="230dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#285827"
+            android:text="Acceder" />
+
+        <Button
+            android:id="@+id/btnRegisterLogin"
             android:layout_width="230dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#285827"
-            android:text="Crear Usuario" />
+            android:text="Registrarse" />
+
+        <TextView
+            android:id="@+id/txtDidYouForgetYourPassword"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Olvidaste tu contraseña?"
+            android:textSize="14sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtRecoverPasswordLogin"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Recuperar contraseña"
+            android:textColor="#03A9F4"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/TextFollowUsRegister"
+        android:id="@+id/TextFollowUsLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="80dp"
         android:text="Siguenos en nuestras redes sociales:"
         android:textSize="14sp"
         android:textColor="#000000"
@@ -144,10 +119,10 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/btnInstagramRegister"
+        android:id="@+id/btnInstagramLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,11 +131,11 @@
         app:srcCompat="@drawable/bxl_instagram" />
 
     <ImageButton
-        android:id="@+id/btnfacebookRegister"
+        android:id="@+id/btnfacebookLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="90dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -168,14 +143,15 @@
         app:srcCompat="@drawable/bxl_facebook_circle" />
 
     <ImageButton
-        android:id="@+id/btntwitterRegister"
+        android:id="@+id/btntwitterLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bxl_twitter" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
