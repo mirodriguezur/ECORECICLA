@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">EcoRecicla</string>
+
+
+    <!-- CategoriesActivity -->
+    <string name="bar_title_category">CATEGORÍAS</string>
+    <string name="title_category">Por favor seleccione la categoría que desea registrar:</string>
+    <string name="plastic_category">Envases,  tapitas, papel plástico, moldes plásticos, botellas, bolsas, etc</string>
+    <string name="paper_category">Hojas, revistas, documentos, guías, diarios, sobres, folletos, etc</string>
+    <string name="metal_category">Latas de bebida, conservas, herramientas, utencilios de cocina, bisutería, etc</string>
+    <string name="computer_waste_category">Computadores, teclados, mouse, cámaras, discos duros, USBs, electrodomésticos</string>
+    <string name="button_text_register">Registrar</string>
 </resources>
