@@ -4,11 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.example.ecorecicla.models.User;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
+
+    // User information fields
+    private EditText txtEmail;
+    private EditText txtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +33,14 @@ public class LoginActivity extends AppCompatActivity {
         ImageButton btnInfo = findViewById(R.id.btnInfoLogin);
         Button btnLogin = findViewById(R.id.btnLoginLogin);
         Button btnRegisterUser = findViewById(R.id.btnRegisterLogin);
+
+        txtEmail = findViewById(R.id.txtEmailLogin);
+        txtPassword = findViewById(R.id.txtPasswordLogin);
+
+        // read data from file .txt
+        File userFile = new File(getFilesDir(), "userData.txt");
+        ArrayList<User> users = new ArrayList<>();
+        readDataFromFile(userFile, users);
 
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,8 +53,10 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToMainMenuActivity = new Intent(LoginActivity.this, MainMenuActivity.class);
-                startActivity(goToMainMenuActivity);
+                if (shouldNavigateToMainMenuActivity(users)) {
+                    Intent goToMainMenuActivity = new Intent(LoginActivity.this, MainMenuActivity.class);
+                    startActivity(goToMainMenuActivity);
+                }
             }
         });
 
@@ -42,5 +67,57 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(goToCreateAccountActivity);
             }
         });
+    }
+    private void  readDataFromFile(File userFile, ArrayList<User> users) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(userFile));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // Split line into user data separated by commas
+                String[] userData = line.split(",");
+                String firstName = userData[0];
+                String lastName = userData[1];
+                String email = userData[2];
+                String cellNumber = userData[3];
+                String city = userData[4];
+                Integer password = Integer.parseInt(userData[5]);
+                // Create a User object and add it to the user list
+                User user = new User(firstName, lastName, email, cellNumber, city, password);
+                users.add(user);
+            }
+            reader.close();
+
+            // Imprimir información de los usuarios leídos en el archivo
+            for (User usuario : users) {
+                Log.d("Usuarios",
+                        "Nombre: " + usuario.getFirstName() + ", Correo: " + usuario.getEmail() +
+                                ", Telefono: " + usuario.getCellNumber() + ", Password: " + usuario.getPassword());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private boolean shouldNavigateToMainMenuActivity (ArrayList<User> users) {
+        // Check if username and password data have been entered
+        if (!txtEmail.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty()) {
+            String inputUsuario = txtEmail.getText().toString();
+            Integer inputPassword = Integer.parseInt(txtPassword.getText().toString());
+
+            // Find the matching user in the user list
+            for (User user : users) {
+                if (user.getPassword().equals(inputPassword)) {
+                    if (user.getEmail().equals(inputUsuario)) {
+                        // If it finds a match, return true and exit the loop.
+                        return true;
+                    }
+                }
+            }
+            // Si no se encontró una coincidencia, mostrar un mensaje de error utilizando Toast
+            Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getApplicationContext(), "Los campos no pueden estar vacíos",
+                    Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
