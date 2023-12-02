@@ -1,16 +1,18 @@
 package com.example.ecorecicla;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.ecorecicla.models.DataValidator;
 import com.example.ecorecicla.models.User;
 
 import java.io.BufferedReader;
@@ -86,13 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                 users.add(user);
             }
             reader.close();
-
-            // Imprimir información de los usuarios leídos en el archivo
-            for (User usuario : users) {
-                Log.d("Usuarios",
-                        "Nombre: " + usuario.getFirstName() + ", Correo: " + usuario.getEmail() +
-                                ", Telefono: " + usuario.getCellNumber() + ", Password: " + usuario.getPassword());
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,17 +98,33 @@ public class LoginActivity extends AppCompatActivity {
             String inputUsuario = txtEmail.getText().toString();
             Integer inputPassword = Integer.parseInt(txtPassword.getText().toString());
 
-            // Find the matching user in the user list
-            for (User user : users) {
-                if (user.getPassword().equals(inputPassword)) {
-                    if (user.getEmail().equals(inputUsuario)) {
-                        // If it finds a match, return true and exit the loop.
-                        return true;
+            DataValidator validator = new DataValidator();
+            if (validator.validateFormatEmail(inputUsuario) && validator.validateFormatPassword(inputPassword)) {
+                // Find the matching user in the user list
+                for (User user : users) {
+                    if (user.getPassword().equals(inputPassword)) {
+                        if (user.getEmail().equals(inputUsuario)) {
+                            // If it finds a match, return true and exit the loop.
+                            return true;
+                        }
                     }
                 }
+                // If you don't find a match, display an error message when using Toast
+                Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+            } else {
+                AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+                alert.setMessage("Revise el formato del correo y/o recuerde \n que la contraseña son 5 digitos")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int i) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog title = alert.create();
+                title.setTitle("Formato incorrecto");
+                title.show();
             }
-            // Si no se encontró una coincidencia, mostrar un mensaje de error utilizando Toast
-            Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(getApplicationContext(), "Los campos no pueden estar vacíos",
                     Toast.LENGTH_SHORT).show();

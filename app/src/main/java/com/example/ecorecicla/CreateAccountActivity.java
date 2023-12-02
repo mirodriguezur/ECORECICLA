@@ -1,7 +1,9 @@
 package com.example.ecorecicla;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.ecorecicla.models.DataValidator;
 import com.example.ecorecicla.models.User;
 
 import java.io.BufferedReader;
@@ -83,29 +86,47 @@ public class CreateAccountActivity extends AppCompatActivity {
             if (!txtFirstName.getText().toString().isEmpty() && !txtLastName.getText().toString().isEmpty() && !txtEmail.getText().toString().isEmpty() &&
                     !txtCellNumber.getText().toString().isEmpty() && !txtCity.getText().toString().isEmpty() && !txtPassword.getText().toString().isEmpty() &&
                     !txtRepeatPassword.getText().toString().isEmpty()) {
-                // check if the passwords are the same
-                if (txtPassword.getText().toString().equals(txtRepeatPassword.getText().toString())) {
-                    // Validate if the data already exists in the file
-                    if (dataExist(txtFirstName.getText().toString(), txtEmail.getText().toString(), txtCellNumber.getText().toString())) {
-                        // Los datos ya existen
-                        Toast.makeText(getApplicationContext(), "El correo, usuario o nickname ya existen", Toast.LENGTH_SHORT).show();
+
+                DataValidator validator = new DataValidator();
+                if (validator.validateFormatEmail(txtEmail.getText().toString()) && validator.validateFormatPassword(Integer.parseInt(txtPassword.getText().toString()))
+                && validator.validateFormatCellNumber(txtCellNumber.getText().toString())) {
+                    // check if the passwords are the same
+                    if (txtPassword.getText().toString().equals(txtRepeatPassword.getText().toString())) {
+                        // Validate if the data already exists in the file
+                        if (dataExist(txtFirstName.getText().toString(), txtEmail.getText().toString(), txtCellNumber.getText().toString())) {
+                            // Los datos ya existen
+                            Toast.makeText(getApplicationContext(), "El usuario ya existen", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Los datos no existen, realizar el registro
+                            // Crear un nuevo objeto Usuario
+                            User newUser = new User(txtFirstName.getText().toString(),
+                                    txtLastName.getText().toString(), txtEmail.getText().toString(),
+                                    txtCellNumber.getText().toString(), txtCity.getText().toString(),
+                                    Integer.parseInt(txtPassword.getText().toString()));
+                            // Guardar los datos en el archivo
+                            saveUser(newUser);
+                            Toast.makeText(getApplicationContext(), "Usuario guardado con éxito",
+                                    Toast.LENGTH_SHORT).show();
+                            return true;
+                        }
                     } else {
-                        // Los datos no existen, realizar el registro
-                        // Crear un nuevo objeto Usuario
-                        User newUser = new User(txtFirstName.getText().toString(),
-                                txtLastName.getText().toString(), txtEmail.getText().toString(),
-                                txtCellNumber.getText().toString(), txtCity.getText().toString(),
-                                Integer.parseInt(txtPassword.getText().toString()));
-                        // Guardar los datos en el archivo
-                        saveUser(newUser);
-                        Toast.makeText(getApplicationContext(), "Usuario guardado con éxito",
+                        // The passwords are not the same
+                        Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden",
                                 Toast.LENGTH_SHORT).show();
-                        return true;
                     }
                 } else {
-                    // The passwords are not the same
-                    Toast.makeText(getApplicationContext(), "Las contraseñas no coinciden",
-                            Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder alert = new AlertDialog.Builder(CreateAccountActivity.this);
+                    alert.setMessage("Revise el formato del correo \nEl número celular debe tener 10 dígitos \nLa contraseña debe tener 5 dígitos")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int i) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog title = alert.create();
+                    title.setTitle("Formato incorrecto");
+                    title.show();
                 }
             } else {
                 // The fields are empty
