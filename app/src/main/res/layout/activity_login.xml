@@ -52,7 +52,7 @@
             android:layout_width="230dp"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="Correo / Nickname"
+            android:hint="Correo"
             android:layout_marginTop="15dp"
             android:inputType="text" />
 

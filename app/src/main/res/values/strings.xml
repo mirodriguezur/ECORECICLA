@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">EcoRecicla</string>
 
+    <!-- CreateAccountActivity -->
+    <string name="radio_button_terms">Acepto términos y condiciones</string>
 
     <!-- CategoriesActivity -->
     <string name="bar_title_category">CATEGORÍAS</string>

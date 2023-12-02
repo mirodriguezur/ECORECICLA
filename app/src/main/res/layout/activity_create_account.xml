@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/viewLogoRegister"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,8 +40,8 @@
 
     <LinearLayout
         android:layout_width="300dp"
-        android:layout_height="490dp"
-        android:layout_marginTop="160dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="140dp"
         android:orientation="vertical"
         android:background="#D9D9D9"
         android:gravity="center_horizontal"
@@ -121,11 +121,24 @@
             android:layout_marginTop="5dp"
             android:inputType="textPassword" />
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/radioButtonTermsConditionsRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="13sp"
+                android:text="@string/radio_button_terms" />
+
+        </RadioGroup>
+
         <Button
             android:id="@+id/btnRegisterRegister"
             android:layout_width="230dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
             android:backgroundTint="#285827"
             android:text="Crear Usuario" />
 
@@ -135,7 +148,7 @@
         android:id="@+id/TextFollowUsRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
+        android:layout_marginBottom="45dp"
         android:text="Siguenos en nuestras redes sociales:"
         android:textSize="14sp"
         android:textColor="#000000"
@@ -147,7 +160,7 @@
         android:id="@+id/btnInstagramRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -160,7 +173,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="90dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -172,7 +185,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:background="@null"
         android:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
