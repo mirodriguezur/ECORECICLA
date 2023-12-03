@@ -7,7 +7,7 @@
     <!-- CategoriesActivity -->
     <string name="bar_title_category">CATEGORÍAS</string>
     <string name="title_category">Por favor seleccione la categoría que desea registrar:</string>
-    <string name="plastic_category">Envases,  tapitas, papel plástico, moldes plásticos, botellas, bolsas, etc</string>
+    <string name="plastic_category">Envases, tapitas, papel plástico, moldes plásticos, botellas, bolsas, etc</string>
     <string name="paper_category">Hojas, revistas, documentos, guías, diarios, sobres, folletos, etc</string>
     <string name="metal_category">Latas de bebida, conservas, herramientas, utencilios de cocina, bisutería, etc</string>
     <string name="computer_waste_category">Computadores, teclados, mouse, cámaras, discos duros, USBs, electrodomésticos</string>
@@ -15,6 +15,9 @@
     <string name="bar_title_advices">CONSEJOS</string>
     <string name="content_description_media">La descripcion del contenido multimedia</string>
     <string name="TitleAdvices">Categoria consejo</string>
-
-
+    <!-- RecyclingRegistrationFormActivity -->
+    <string name="bar_title_register">REGISTRO</string>
+    <string name="title_category_recyclingregistration">Por favor ingrese los datos  de reciclaje:</string>
+    <string name="button_text_delete_register">Borrar</string>
+   
 </resources>
