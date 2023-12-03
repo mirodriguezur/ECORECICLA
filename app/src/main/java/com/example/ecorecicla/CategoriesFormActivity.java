@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,8 +43,33 @@ public class CategoriesFormActivity extends AppCompatActivity {
         btnRegisterCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToRecyclingRegistrationFormActivity = new Intent(CategoriesFormActivity.this, RecyclingRegistrationFormActivity.class);
-                startActivity(goToRecyclingRegistrationFormActivity);
+                Intent intent = new Intent(CategoriesFormActivity.this, RecyclingRegistrationFormActivity.class);
+                switch (validateCategory()) {
+                    case PLASTICOS:
+                        intent.putExtra("txtAmount", "Cantidad de cm3 de plástico a reciclar");
+                        intent.putExtra("txtHint","cm3");
+                        intent.putExtra("fileCategory","plastico.txt");
+                        startActivity(intent);
+                        break;
+                    case PAPEL:
+                        intent.putExtra("txtAmount", "Cantidad de hojas de papel a reciclar");
+                        intent.putExtra("txtHint","No. Hojas");
+                        intent.putExtra("fileCategory","papel.txt");
+                        startActivity(intent);
+                        break;
+                    case METALES:
+                        intent.putExtra("txtAmount", "Cantidad de kg de metal a reciclar");
+                        intent.putExtra("txtHint","kg");
+                        intent.putExtra("fileCategory","metal.txt");
+                        startActivity(intent);
+                        break;
+                    case DESECHOS_INFORMATICOS:
+                        intent.putExtra("txtAmount", "Cantidad de elementos a reciclar");
+                        intent.putExtra("txtHint","No. elementos");
+                        intent.putExtra("fileCategory","desechoinformatico.txt");
+                        startActivity(intent);
+                        break;
+                }
             }
         });
 
@@ -87,5 +113,16 @@ public class CategoriesFormActivity extends AppCompatActivity {
                 txtCategory.setText(R.string.computer_waste_category);
                 break;
         }
+    }
+
+    private Categories validateCategory() {
+        if (txtCategory.getText().toString().equals(getString(R.string.plastic_category))) {
+            return Categories.PLASTICOS;
+        } else if (txtCategory.getText().toString().equals(getString(R.string.metal_category))) {
+            return Categories.METALES;
+        } else if (txtCategory.getText().toString().equals(getString(R.string.computer_waste_category))) {
+            return Categories.DESECHOS_INFORMATICOS;
+        }
+        return Categories.PAPEL;
     }
 }
