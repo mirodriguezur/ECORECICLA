@@ -12,4 +12,9 @@
     <string name="metal_category">Latas de bebida, conservas, herramientas, utencilios de cocina, bisutería, etc</string>
     <string name="computer_waste_category">Computadores, teclados, mouse, cámaras, discos duros, USBs, electrodomésticos</string>
     <string name="button_text_register">Registrar</string>
+    <string name="bar_title_advices">CONSEJOS</string>
+    <string name="content_description_media">La descripcion del contenido multimedia</string>
+    <string name="TitleAdvices">Categoria consejo</string>
+
+
 </resources>
