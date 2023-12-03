@@ -94,16 +94,16 @@ public class CreateAccountActivity extends AppCompatActivity {
                     if (txtPassword.getText().toString().equals(txtRepeatPassword.getText().toString())) {
                         // Validate if the data already exists in the file
                         if (dataExist(txtFirstName.getText().toString(), txtEmail.getText().toString(), txtCellNumber.getText().toString())) {
-                            // Los datos ya existen
+                            // The data already exists
                             Toast.makeText(getApplicationContext(), "El usuario ya existen", Toast.LENGTH_SHORT).show();
                         } else {
-                            // Los datos no existen, realizar el registro
-                            // Crear un nuevo objeto Usuario
+                            // The data does not exist, register
+                            // Create a new User object
                             User newUser = new User(txtFirstName.getText().toString(),
                                     txtLastName.getText().toString(), txtEmail.getText().toString(),
                                     txtCellNumber.getText().toString(), txtCity.getText().toString(),
                                     Integer.parseInt(txtPassword.getText().toString()));
-                            // Guardar los datos en el archivo
+                            // Save data to file
                             saveUser(newUser);
                             Toast.makeText(getApplicationContext(), "Usuario guardado con éxito",
                                     Toast.LENGTH_SHORT).show();
