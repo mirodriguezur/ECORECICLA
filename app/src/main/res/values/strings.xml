@@ -15,9 +15,12 @@
     <string name="bar_title_advices">CONSEJOS</string>
     <string name="content_description_media">La descripcion del contenido multimedia</string>
     <string name="TitleAdvices">Categoria consejo</string>
+
     <!-- RecyclingRegistrationFormActivity -->
     <string name="bar_title_register">REGISTRO</string>
     <string name="title_category_recyclingregistration">Por favor ingrese los datos  de reciclaje:</string>
     <string name="button_text_delete_register">Borrar</string>
-   
+
+    <!-- StatisticsActivity -->
+    <string name="bar_title_statistics">ESTADÍSTICAS</string>
 </resources>

@@ -16,7 +16,7 @@
             android:id="@+id/toolbar_mainmenu"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="#01BD46"
+            android:background="@color/darkGreen"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <!-- Botón de menú en la barra -->
@@ -43,7 +43,7 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="0dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#01BE46"
+                    android:background="@color/darkGreen"
                     android:text="@string/bar_title_advices"
                     android:textAlignment="center"
                     android:textColor="@color/white"
@@ -132,7 +132,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="#01BF46" />
+                    android:background="@color/darkGreen" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
