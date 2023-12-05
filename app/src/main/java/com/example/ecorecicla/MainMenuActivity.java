@@ -1,11 +1,13 @@
 package com.example.ecorecicla;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -14,19 +16,19 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        //ImageButton btnprofile = findViewById(R.id.btnProfileMainMenu);
+        ImageButton btnProfile = findViewById(R.id.btnProfileMainMenu);
         ImageButton btnCategory = findViewById(R.id.btnCategoryMainMenu);
         ImageButton btnstatistics = findViewById(R.id.btnStatisticMainMenu);
         ImageButton btnAdvices = findViewById(R.id.btnAdvicesMainMenu);
+        TextView txtTitle = findViewById(R.id.toolbar_title_mainmenu);
 
-        //TODO: Add ProfileActivity
-        //btnprofile.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Intent goToProfileActivity = new Intent(MainMenuActivity.this, ProfileActivity.class);
-        //        startActivity(goToProfileActivity);
-        //    }
-        //});
+        btnProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent goToProfileActivity = new Intent(MainMenuActivity.this, ProfileActivity.class);
+                startActivity(goToProfileActivity);
+            }
+        });
 
         btnCategory.setOnClickListener(new View.OnClickListener() {
             @Override

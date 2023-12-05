@@ -22,7 +22,7 @@
 
             <!-- Título de la barra -->
             <TextView
-                android:id="@+id/toolbar_title"
+                android:id="@+id/toolbar_title_mainmenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -60,7 +60,7 @@
             app:srcCompat="@drawable/ecoreciclalogo" />
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/btnProfileMainMenu"
             android:layout_width="320dp"
             android:layout_height="110dp"
             android:layout_marginTop="5dp"
@@ -80,7 +80,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/btnProfileMainMenu"
             app:srcCompat="@drawable/group_26" />
 
         <ImageButton

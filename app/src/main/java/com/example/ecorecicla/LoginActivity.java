@@ -2,6 +2,7 @@ package com.example.ecorecicla;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     // User information fields
     private EditText txtEmail;
     private EditText txtPassword;
+    private UserSingleton viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +106,12 @@ public class LoginActivity extends AppCompatActivity {
                 for (User user : users) {
                     if (user.getPassword().equals(inputPassword)) {
                         if (user.getEmail().equals(inputUsuario)) {
-                            // If it finds a match, return true and exit the loop.
+                            UserSingleton infoUser = UserSingleton.sharedInstance();
+                            infoUser.setFirstName(user.getFirstName());
+                            infoUser.setLastName(user.getLastName());
+                            infoUser.setEmail(user.getEmail());
+                            infoUser.setCellNumber(user.getCellNumber());
+                            infoUser.setCity(user.getCity());
                             return true;
                         }
                     }

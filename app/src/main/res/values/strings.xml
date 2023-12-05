@@ -23,4 +23,17 @@
 
     <!-- StatisticsActivity -->
     <string name="bar_title_statistics">ESTADÍSTICAS</string>
+
+    <!-- ProfileActivity -->
+    <string name="bar_title_profile">MI PERFIL</string>
+    <string name="title_profile">Mi perfil</string>
+    <string name="subtitle_profile">Actualiza tus datos personales</string>
+    <string name="label_first_name">Nombre</string>
+    <string name="label_last_name">Apellido</string>
+    <string name="label_email">Correo electrónico</string>
+    <string name="label_cell_phone">Teléfono celular</string>
+    <string name="label_city">Ciudad</string>
+
+
+
 </resources>
