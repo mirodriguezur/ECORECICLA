@@ -34,7 +34,7 @@
 
             <!-- Botón de menú en la barra -->
             <ImageButton
-                android:id="@+id/boton_bar_menu"
+                android:id="@+id/btnExitMainMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="190dp"

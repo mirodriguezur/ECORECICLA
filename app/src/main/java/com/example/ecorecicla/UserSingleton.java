@@ -74,4 +74,8 @@ public class UserSingleton {
     public void setCity(String city) {
         this.city = city;
     }
+
+    public static void deinitialize() {
+        user = null;
+    }
 }

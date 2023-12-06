@@ -20,7 +20,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ImageButton btnCategory = findViewById(R.id.btnCategoryMainMenu);
         ImageButton btnstatistics = findViewById(R.id.btnStatisticMainMenu);
         ImageButton btnAdvices = findViewById(R.id.btnAdvicesMainMenu);
-        TextView txtTitle = findViewById(R.id.toolbar_title_mainmenu);
+        ImageButton btnExit = findViewById(R.id.btnExitMainMenu);
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +51,14 @@ public class MainMenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent goToAdvicesActivity = new Intent(MainMenuActivity.this, AdvicesActivity.class);
                 startActivity(goToAdvicesActivity);
+            }
+        });
+        btnExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UserSingleton.deinitialize();
+                Intent goToLoginActivity = new Intent(MainMenuActivity.this, LoginActivity.class);
+                startActivity(goToLoginActivity);
             }
         });
     }
